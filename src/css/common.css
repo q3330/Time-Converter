@@ -1,0 +1,280 @@
+﻿/* 公共样式 - 玻璃拟态主题 */
+:root {
+    /* 夜间模式 */
+    --bg-gradient: radial-gradient(circle at top left, #1e293b, #0f172a);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --modal-bg: rgba(15, 23, 42, 0.9);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    --input-bg: rgba(15, 23, 42, 0.5);
+    --input-border: rgba(51, 65, 85, 1);
+    --card-hover: rgba(255, 255, 255, 0.05);
+    --primary: #3b82f6;
+    --secondary: #6B7280;
+    --scrollbar-thumb: rgba(255, 255, 255, 0.1);
+    --badge-bg: transparent;
+    --badge-text: #94a3b8;
+    --badge-border: rgba(255, 255, 255, 0.2);
+    --badge-active-bg: rgba(59, 130, 246, 0.75);
+    --badge-active-text: #ffffff;
+    --badge-active-border: rgba(59, 130, 246, 0.5);
+    --header-text-themed: #ffffff;
+    --nav-active-bg: rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* 白天模式 */
+        --bg-gradient: radial-gradient(circle at top left, #f1f5f9, #e2e8f0);
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.4);
+        --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        --modal-bg: rgba(255, 255, 255, 0.95);
+        --text-main: #000000;
+        --text-muted: #475569;
+        --text-dim: #94a3b8;
+        --input-bg: rgba(255, 255, 255, 0.5);
+        --input-border: rgba(203, 213, 225, 1);
+        --card-hover: rgba(255, 255, 255, 0.8);
+        --primary: #2563eb;
+        --scrollbar-thumb: rgba(0, 0, 0, 0.1);
+        --badge-bg: transparent;
+        --badge-text: #64748b;
+        --badge-border: rgba(0, 0, 0, 0.15);
+        --badge-active-bg: rgba(37, 99, 235, 0.75);
+        --badge-active-text: #ffffff;
+        --badge-active-border: rgba(37, 99, 235, 0.3);
+        --header-text-themed: var(--text-dim);
+        --nav-active-bg: rgba(200, 200, 200, 0.25);
+    }
+}
+
+/* 主题类 */
+body {
+    background: var(--bg-gradient) !important;
+    color: var(--text-main);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-glass {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow) !important;
+    transition: all 0.3s ease;
+}
+
+.theme-modal {
+    background: var(--modal-bg) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    color: var(--text-main) !important;
+}
+
+.theme-input {
+    background: var(--input-bg) !important;
+    border: 1px solid var(--input-border) !important;
+    color: var(--text-main) !important;
+}
+
+.theme-input::placeholder {
+    color: var(--text-dim) !important;
+}
+
+.theme-text-main {
+    color: var(--text-main) !important;
+}
+
+.theme-text-muted {
+    color: var(--text-muted) !important;
+}
+
+.theme-text-dim {
+    color: var(--text-dim) !important;
+}
+
+.theme-header-text {
+    color: var(--header-text-themed) !important;
+}
+
+
+.theme-card-hover:hover {
+    background: var(--card-hover) !important;
+}
+
+.theme-badge {
+    background: var(--badge-bg) !important;
+    color: var(--badge-text) !important;
+    border: 1px solid var(--badge-border) !important;
+    transition: all 0.2s ease;
+}
+
+.theme-badge-selected {
+    background: var(--badge-active-bg) !important;
+    color: var(--badge-active-text) !important;
+    border-color: var(--badge-active-border) !important;
+}
+
+
+.form-input-focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+    outline: none !important;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+    display: none;
+}
+
+.mask.show {
+    display: block;
+}
+
+.input-tip {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.name-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.base-info-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.25rem;
+}
+
+@keyframes focus-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+.focus-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    animation: focus-animation 0.6s ease-out;
+}
+
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 底部导航 */
+.nav-item {
+    color: var(--text-dim);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: var(--text-muted);
+}
+
+.nav-item.active-nav {
+    color: var(--primary) !important;
+    background: var(--nav-active-bg);
+
+    text-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-dim);
+
+}
+
+.date-picker-active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+.name-picker-active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+/* 修复人员编辑时在白天模式下的文字颜色问题 */
+.slot-input:not([readonly]) {
+    color: var(--text-main) !important;
+    background: var(--input-bg) !important;
+    padding: 2px 6px !important;
+    margin: -2px -6px !important;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px var(--primary) !important;
+}
+
+.card-shadow {
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05) !important;
+}
