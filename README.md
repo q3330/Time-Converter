@@ -78,4 +78,3 @@
 - **Tailwind CSS** (Styling)
 
 ---
-*Developed with ❤️ by Caolian.Duan*
